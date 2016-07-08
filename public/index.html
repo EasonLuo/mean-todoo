@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="Todoo">
+<head>
+	<title>Todoo</title>
+	<link rel="stylesheet" href="flat-ui/bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="flat-ui/css/flat-ui.css" />
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="css/sticky.css" />
+</head>
+<body>
+<!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top square">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Todoo</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Account</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div ng-controller="todoController">
+					<div class="form-group">
+						<input type="text" class="form-control input-mons" ng-model="todo.title" ng-enter="add()" placeholder="Title" />
+					</div>
+					<ul class="list-group">
+					  <li ng-repeat="item in todos" class="list-group-item">{{item.title}}<a class="badge" ng-click="remove(item._id)"><i class="fa fa-times fa-lg"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+      </div>
+    </footer>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script src="flat-ui/js/jquery-1.10.2.min.js"></script>
+<script src="flat-ui/js/bootstrap.min.js"></script>
+<script src="js/todo.js"></script>
+</body>
+</html>

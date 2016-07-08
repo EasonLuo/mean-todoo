@@ -1,0 +1,54 @@
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+}
+
+.square{
+	border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+	-moz-border-radius: 0 !important;
+	-o-border-radius: 0 !important;
+}
+
+.input-mons {
+	height: 61px;
+    padding: 10px 15px;
+    font-size: 27px;
+    line-height: 1.72222;
+    border-radius: 6px;
+
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 100px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
