@@ -38,6 +38,11 @@
 						$compile(element.contents())(scope);
 					}
 				});
+			},
+			controller: function($scope, $element,$attrs) {
+				$scope.next = function () {
+					console.log($attrs);
+				};
 			}
 		};
 	});
