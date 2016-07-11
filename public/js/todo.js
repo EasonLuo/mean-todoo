@@ -12,6 +12,35 @@
 	            });
 	        };
 	});
+
+	todo.directive('stepoForm', function(){
+		return {
+			restrict: 'A',
+			replace: true,
+			link: function(scope, element, attributes){
+				console.log('stepoForm');
+			},
+			controller: ['$scope', function($scope){
+				$scope.current = 'contact';
+			}]
+		};
+	});
+
+	todo.directive('stepoStep', function($http, $compile){
+		return {
+			restrict: 'E',
+			replace: true,
+			link: function(scope, element, attributes){
+				$http.get(attributes.template).success(function(html){
+					console.log(scope.current);
+					if(scope.current==attributes.name){
+						element.html(html);
+						$compile(element.contents())(scope);
+					}
+				});
+			}
+		};
+	});
 	todo.controller('todoController',['$scope','$http', function($scope, $http){
 			$http.get('/todos').success(function(data){
 				$scope.todos = data;
