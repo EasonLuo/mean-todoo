@@ -1,0 +1,16 @@
+<fieldset>
+	<legend>Website Information</legend>
+	<div class="form-group">
+		<input type="text" name="content[purpose]" ng-model="request.content.purpose" class="form-control" placeholder="Website Purpose" />
+	</div>
+	<div class="form-group">
+		<input type="text" name="content[prefer]" ng-model="request.content.prefer" class="form-control" placeholder="Website You Like" />
+	</div>
+	<div class="form-group">
+		<input type="text" name="content[why]" ng-model="request.content.why" class="form-control" placeholder="Why" />
+	</div>
+	<div class="form-group">
+		<a ui-sref="request.business" class="btn btn-default pull-left">Back</a>
+		<input type="button" ng-click="processForm()" class="btn btn-info pull-right" value="Submit" />
+	</div>
+</fieldset>

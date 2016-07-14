@@ -8,6 +8,8 @@ var db_url = 'mongodb://localhost:27017/todos';
 app.use(express.static(__dirname+'/public'));
 app.use('/flat-ui',express.static(__dirname+'/node_modules/flat-ui'));
 app.use('/font-awesome',express.static(__dirname+'/node_modules/font-awesome'));
+app.use('/angular',express.static(__dirname+'/node_modules/angular'));
+app.use('/angular-ui-router',express.static(__dirname+'/node_modules/angular-ui-router/release'));
 app.use(bodyParser.json());
 
 app.get('/todos', function(req, res){
@@ -31,6 +33,10 @@ app.post('/todos', function(req, res){
 			db.close();
 		});
 	});
+});
+
+app.post('/request/contact/validate', function(req, res){
+	res.json(req.param);
 });
 
 app.delete('/todos/:id', function(req, res){

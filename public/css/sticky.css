@@ -11,7 +11,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
+ Set the fixed height of the footer here 
   height: 60px;
 }
 
@@ -51,4 +51,10 @@ body > .container {
 
 code {
   font-size: 80%;
+}
+
+#request-summary {
+  padding: 15px;
+  background-color: #EEE;
+  margin: 15px 0px;
 }

@@ -1,16 +1,16 @@
 <fieldset>
 	<legend>Business Information</legend>
 	<div class="form-group">
-		<input type="text" name="business[name]" class="form-control" placeholder="Name" />
+		<input type="text" name="business[name]" ng-model="request.business.name" class="form-control" placeholder="Name" />
 	</div>
 	<div class="form-group">
-		<input type="email" name="business[abn]" class="form-control" placeholder="ABN" />
+		<input type="text" name="business[abn]" ng-model="request.business.abn" class="form-control" placeholder="ABN" />
 	</div>
 	<div class="form-group">
-		<input type="text" name="business[url]" class="form-control" placeholder="Current Website" />
+		<input type="text" name="business[url]" ng-model="request.business.url" class="form-control" placeholder="Current Website" />
 	</div>
 	<div class="form-group">
-		<input type="button" name="business[back]" class="btn btn-default pull-left" value="Back" />
-		<input type="button" name="business[next]" class="btn btn-primary pull-right" value="Next" />
+		<a ui-sref="request.contact" class="btn btn-default pull-left">Back</a>
+		<a ui-sref="request.content" class="btn btn-info pull-right">Next</a>
 	</div>
 </fieldset>
