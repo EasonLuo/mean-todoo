@@ -4,7 +4,7 @@
 // =============================================================================
 var todo = angular.module('Todoo', ['ui.router'])
 
-// configuring our routes 
+// configuring our routes E
 // =============================================================================
 .config(function($stateProvider, $urlRouterProvider) {
     
@@ -24,16 +24,31 @@ var todo = angular.module('Todoo', ['ui.router'])
         });
     $urlRouterProvider.otherwise(function($injector, $location) {
             var $state = $injector.get("$state");
-            $state.go("request.contact");
+            $state.transitionTo("request.contact");
         });
-}).controller('requestController', ['$scope','$injector',function($scope, $injector) {
+}).controller('requestController', ['$scope','$http', '$state',function($scope, $http, $state) {
 	event.preventDefault();
-	$http = $injector.get('$http');
-	$state = $injector.get('$state');
 	$scope.request = {};
 	$scope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams, options){
-		$http.post('/request'+fromState.url+'/validate',$scope[fromState.name]).success(function(response){
-			$state.go(toState.name,toParams);
+		var parts = fromState.name.split('.');
+		var i=0;
+		var part = null;
+		var tmp = $scope;
+		while(part = parts[i++]){
+			if(tmp[part]){
+				tmp = tmp[part];
+			}
+		}
+		// console.log(tmp);
+		$http.post('/request'+fromState.url+'/validate',tmp).then(function(response){
+			var content = "<ul>";
+			var data = response.data;
+			for(var prop in data){
+				content += "<li><strong>"+prop+"</strong> : "+data[prop]+"</li>";
+			}
+			content += "</ul>";
+			jQuery('#request-summary').append(content);
+			$state.transitionTo(toState.name,toParams);
 		});
 	});
 	$scope.processForm = function() {

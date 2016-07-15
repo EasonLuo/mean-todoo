@@ -35,9 +35,10 @@ app.post('/todos', function(req, res){
 	});
 });
 
-app.post('/request/contact/validate', function(req, res){
-	res.json(req.param);
+app.post('/request/:part/validate', function(req, res){
+	res.json(req.body);
 });
+
 
 app.delete('/todos/:id', function(req, res){
 	var id = req.params.id;
